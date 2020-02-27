@@ -1,9 +1,15 @@
+<?php /**/ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>Mon titre</title>
 </head>
 <body>
+	<header> </header>
+
+	<?php include("menu.php"); ?>
 	<?php //phpinfo()
 		$age_de_moi = 23;
 		echo "j'ai $age_de_moi ans <br />";
@@ -53,5 +59,9 @@
 			echo '"pamplemousse" se trouve en position ' . $position;
 		}
 	?>
+
+	<footer id="pied_de_page">
+    	<p>Copyright moi, tous droits réservés</p>
+    </footer>
 </body>
 </html>
