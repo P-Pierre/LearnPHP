@@ -13,7 +13,7 @@
 	<?php //phpinfo()
 		$age_de_moi = 23;
 		echo "j'ai $age_de_moi ans <br />";
-		echo 'j\'ai' . $age_de_moi . 'ans';
+		echo 'j\'ai' . $age_de_moi . 'ans<br />';
 
 
 		$coordonnees = array (
@@ -21,6 +21,8 @@
     		'nom' => 'Dupont',
     		'adresse' => '3 Rue du Paradis',
     		'ville' => 'Marseille');
+
+		echo $coordonnees['adresse']. '<br />';
 
 		echo '<pre>';
 		print_r($coordonnees);
