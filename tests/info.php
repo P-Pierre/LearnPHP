@@ -1,4 +1,6 @@
-<?php /**/ ?>
+<?php session_start() ?>
+<?php setcookie('pseudo', 'Fitz', time() + 7*24*3600, null, null, false, true); ?>
+<?php setcookie('mabite', '80cm', time() + 7*24*3600, null, null, false, true); ?>
 
 <!DOCTYPE html>
 <html>
@@ -8,8 +10,8 @@
 </head>
 <body>
 	<header> </header>
-
 	<?php include("menu.php"); ?>
+	<?php $_SESSION['UnTruc'] = 'pas net'; ?>
 	<?php //phpinfo()
 		$age_de_moi = 23;
 		echo "j'ai $age_de_moi ans <br />";
@@ -62,8 +64,45 @@
 		}
 	?>
 
+	<pre>
+	<?php
+	print_r($_SERVER);
+	?>
+	</pre>
+
+	<pre>
+	<?php
+	print_r($_SESSION);
+	?>
+	</pre>
+
+	<pre>
+	<?php
+	print_r($_COOKIE);
+	?>
+	</pre>
+
+
+	<?php
+	// 1 : on ouvre le fichier
+	$monfichier = fopen('compteur.txt', 'r+');
+
+	// 2 : on fera ici nos opérations sur le fichier...
+	$pages_vues = fgets($monfichier); // On lit la première ligne (nombre de pages vues)
+	$pages_vues += 1; // On augmente de 1 ce nombre de pages vues
+	fseek($monfichier, 0); // On remet le curseur au début du fichier
+	fputs($monfichier, $pages_vues); // On écrit le nouveau nombre de pages vues
+
+
+	// 3 : quand on a fini de l'utiliser, on ferme le fichier
+	fclose($monfichier);
+
+	echo '<p>Cette page a été vue ' . $pages_vues . ' fois !</p>';
+	?>
+
 	<footer id="pied_de_page">
     	<p>Copyright moi, tous droits réservés</p>
     </footer>
+    <!-- session_destroy() !-->
 </body>
 </html>
